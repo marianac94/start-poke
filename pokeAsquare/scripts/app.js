@@ -14,9 +14,38 @@ const createSquares = (numberOfSquares) => {
   for(let i = 0; i <= numberOfSquares; i++) {
     // creating squares
     const $div = $('<div/>');
+    // this is where the color is applied
+    applyRandomColor($div);
     // actually attach it to the square class
     $('.squares').append($div);
 
+  }
+};
+
+// Now we have a bunch of blue squares, but we want our squares to have a random, red, blue, or green color try to write a function to make that happen.
+
+// var random_color = colors[Math.floor(Math.random() * colors.length)]
+// $('#squares').css('color', random_color
+
+// function getRandomColor() {
+//   var letters = '0123456789ABCDEF';
+//   var color = '#';
+//   for (var i = 0; i < 6; i++) {
+//     color += letters[Math.floor(Math.random() * 16)];
+//   }
+//   return color;
+// }
+
+const applyRandomColor = (square) => {
+
+  const randNum = Math.floor(Math.random() * 3) + 1;
+// im assuming square is a jquery objects
+  if(randNum === 1){
+    square.css('background-color', 'red');
+  } else if (randNum === 2){
+    square.css('background-color', 'blue');
+  } else {
+    square.css('background-color', 'green');
   }
 
 }
