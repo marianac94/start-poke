@@ -1,9 +1,13 @@
 let score = 0;
 const checkValidPoke = (color) => {
   if (color === 'rgb(0, 0, 255)') {
+    // updating the code
     score++;
+      $('h1').text('scoreboard: ' + score)
   } else {
     score--;
+    // actually updating the DOM
+    $('h1').text('scoreboard: ' + score)
   }
 };
 
@@ -39,12 +43,10 @@ const disappearSquares = (e) => {
 
   // to retrive a property
   const color = $(e.currentTarget).css('background-color');
-  // console.log(color);
 
   // setting a property
   $(e.currentTarget).css('opacity', 0);
   checkValidPoke(color);
-  console.log(score);
 }
 
 // Now we have a bunch of blue squares, but we want our squares to have a random, red, blue, or green color try to write a function to make that happen.
