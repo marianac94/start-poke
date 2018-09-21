@@ -1,5 +1,11 @@
-console.log('hi');
-
+let score = 0;
+const checkValidPoke = (color) => {
+  if (color === 'rgb(0, 0, 255)') {
+    score++;
+  } else {
+    score--;
+  }
+};
 
 $('button').on('click', () => {
   console.log('click works');
@@ -14,6 +20,7 @@ const createSquares = (numberOfSquares) => {
   for(let i = 0; i <= numberOfSquares; i++) {
     // creating squares
     const $div = $('<div/>').on('click', disappearSquares);
+      // const $div = $('<div/>').on('click', (e));
       // $(e.currentTarget);
       // $(e.currentTarget).fadeTo("slow", 0);
       // $(e.currentTarget).css('opacity', 0);
@@ -29,22 +36,18 @@ const createSquares = (numberOfSquares) => {
 };
 
 const disappearSquares = (e) => {
+
+  // to retrive a property
+  const color = $(e.currentTarget).css('background-color');
+  // console.log(color);
+
+  // setting a property
   $(e.currentTarget).css('opacity', 0);
+  checkValidPoke(color);
+  console.log(score);
 }
 
 // Now we have a bunch of blue squares, but we want our squares to have a random, red, blue, or green color try to write a function to make that happen.
-
-// var random_color = colors[Math.floor(Math.random() * colors.length)]
-// $('#squares').css('color', random_color
-
-// function getRandomColor() {
-//   var letters = '0123456789ABCDEF';
-//   var color = '#';
-//   for (var i = 0; i < 6; i++) {
-//     color += letters[Math.floor(Math.random() * 16)];
-//   }
-//   return color;
-// }
 
 const applyRandomColor = (square) => {
 
@@ -61,3 +64,5 @@ const applyRandomColor = (square) => {
 }
 
 // Now that we have colored squares, lets make them clickable, and hidden when we click on them. Give it a try! (I recommend just changing the opacity)
+
+// lets write a function called (checkValidPoke) that takes that color string and if it is blue lets update a global score variable.
