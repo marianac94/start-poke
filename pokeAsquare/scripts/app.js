@@ -13,7 +13,13 @@ const createSquares = (numberOfSquares) => {
 
   for(let i = 0; i <= numberOfSquares; i++) {
     // creating squares
-    const $div = $('<div/>');
+    const $div = $('<div/>').on('click', disappearSquares);
+      // $(e.currentTarget);
+      // $(e.currentTarget).fadeTo("slow", 0);
+      // $(e.currentTarget).css('opacity', 0);
+    // });
+    // e is short for event
+    // e.currentTarget gives you the div you are clicking on
     // this is where the color is applied
     applyRandomColor($div);
     // actually attach it to the square class
@@ -21,6 +27,10 @@ const createSquares = (numberOfSquares) => {
 
   }
 };
+
+const disappearSquares = (e) => {
+  $(e.currentTarget).css('opacity', 0);
+}
 
 // Now we have a bunch of blue squares, but we want our squares to have a random, red, blue, or green color try to write a function to make that happen.
 
@@ -49,3 +59,5 @@ const applyRandomColor = (square) => {
   }
 
 }
+
+// Now that we have colored squares, lets make them clickable, and hidden when we click on them. Give it a try! (I recommend just changing the opacity)
